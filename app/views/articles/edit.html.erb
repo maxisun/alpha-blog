@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Edit Article</title>
+</head>
+
+<body>
+
+  <h1> Edit existing article </h1>
+
+  <% if @article.errors.any? %>
+    <h2> The following errors prevented your article from being created </h2>
+    <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for @article do |f |%>
+    <p>
+      <%= f.label :title %> <br>
+      <%= f.text_field :title %>
+    </p> 
+
+    <p>
+      <%= f.label :description %> <br>
+      <%= f.text_area :description %>
+    </p> 
+
+    <p>
+      <%= f.submit %>
+    </p> 
+  <% end %>
+
+
+  <img src="https://pbs.twimg.com/profile_images/1223153353464668160/G0NWAQrG_400x400.jpg" 
+    alt="a cubby girl smiling" style="width:400px;height:400px;">
+
+</body>
+</html>
