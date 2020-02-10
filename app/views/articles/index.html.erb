@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Insert new article</title>
+  <meta name="a page where you can submit articles" content="field and a textbox">
+  <meta name="maxisun" content="New Articles">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+  <h1>Listing all articles</h1>
+
+  <p>
+    <%= link_to "Create new article", new_article_path %>
+  </p>
+
+  <table border="1">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.description %></td>
+        <td><%= link_to "Edit", edit_article_path(article) %></td>
+        <td><%= link_to "Show", article_path(article) %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</body>
+</html>

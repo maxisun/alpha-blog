@@ -19,6 +19,14 @@
     Description: <%= @article.description %> 
   </p>
 
+  <p>
+    <%= link_to "Back to articles listing", articles_path %>
+  </p>  
+
+  <p>
+    <%= link_to "Edit", edit_article_path(@article) %>
+  </p>  
+
   <img src="https://pbs.twimg.com/profile_images/1223153353464668160/G0NWAQrG_400x400.jpg" 
     alt="a cubby girl smiling" style="width:400px;height:400px;">
 
