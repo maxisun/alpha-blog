@@ -1,0 +1,47 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar  {
+  background-color: #ff80bf;
+  //color:#ff80bf;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #ffffff;
+  text-decoration: none;     
+}
+
+.center {
+  text-align: center;
+}
+
+.container {
+  padding: 1em 0em 0em 0em;
+}
+
+.jumbotron {
+  background-image: asset-url('lain.jpg');
+  background-size: cover;
+  height: 550px;
+  //padding: 18em 0em 0em 0em;
+  padding: 20em 0em 0em 0em;
+}
+
+.container_footer {
+  margin: -1em 0em 0em 0em;
+  text-align: center;
+}
+
+.footer {
+  border-top: 1px solid #000000;
+  margin: 0em 12em 0em 12em;
+}
+
