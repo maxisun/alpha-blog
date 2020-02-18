@@ -6,7 +6,9 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    # debugger => detendra el servicio y podes inspecciona a mas a fondo lo que esta pasando en este metodo
     @article = Article.new(article_params)
+    @article.user = User.first #quitar despues
     if @article.save
       flash[:success] = "Article was successfully created"
       redirect_to article_path(@article)

@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Article.delete_all
+User.delete_all
+
+users = [
+  [ "Kanna Kamui", "kanna_kamui@gmail.com" ]
+]
+
+articles = [
+  [ "La puta con un culo blanco", "Mafer rivas es una puta que tiene un tremendo culo", 1]
+]
+
+users.each do | username, email |
+  User.create( username: username, email: email )
+end
+
+articles.each do | title, description, user_id |
+  Article.create( title: title, description: description, user_id: user_id  )
+end
