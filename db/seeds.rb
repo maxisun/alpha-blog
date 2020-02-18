@@ -9,17 +9,19 @@ Article.delete_all
 User.delete_all
 
 users = [
-  [ "Kanna Kamui", "kanna_kamui@gmail.com", "lolis" ]
+  [ "Kanna Kamui", "kanna_kamui@gmail.com", "$2a$12$f1x6KfrB4gbq7NCC0R2X.O6QR0b9FlYnzD3bIWefAOvlXOKQa6ErW" ] #=> lolis
 ]
 
 articles = [
-  [ "La puta con un culo blanco", "Mafer rivas es una puta que tiene un tremendo culo", 1]
+  [ "La puta con un culo blanco", "Mafer rivas es una puta que tiene un tremendo culo" ]
 ]
 
-users.each do | username, email, password |
-  User.create( username: username, email: email, password: password )
+users.each do | username, email, password_digest |
+  User.create( username: username, email: email, password_digest: password_digest )
 end
 
-articles.each do | title, description, user_id |
-  Article.create( title: title, description: description, user_id: user_id  )
+articles.each do | title, description |
+  usuario = User.first
+  Article.create( title: title, description: description, user_id: usuario.id  )
 end
+
