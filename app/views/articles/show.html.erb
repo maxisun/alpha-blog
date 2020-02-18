@@ -1,10 +1,15 @@
 <div class="card border-primary bg-light">
   <div class="card-header text-center">
-    <%= @article.title %>
+    <b><%= @article.title %></b>
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       </p> <%= @article.description %> </p>
+      <small> 
+        Created By: <%= @article.user.username %>, 
+        <%= time_ago_in_words(@article.created_at) %> ago, 
+        last updated: about <%= time_ago_in_words(@article.updated_at) %> ago.
+      </small>
     </blockquote>
   </div>
   <div class="card-footer border-primary">
