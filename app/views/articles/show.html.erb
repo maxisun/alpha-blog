@@ -1,8 +1,10 @@
-<div class="card border-primary bg-light">
+<div class="card border-primary bg-light center">
   <div class="card-header text-center">
     <b><%= @article.title %></b>
   </div>
   <div class="card-body">
+    <%= link_to gravatar_for(@article.user, size: 150), user_path(@article.user) %>
+    <p><%= link_to @article.user.username, user_path(@article.user) %></p>
     <blockquote class="blockquote mb-0">
       </p> <%= @article.description %> </p>
       <small> 
