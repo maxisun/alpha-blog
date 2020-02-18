@@ -9,7 +9,7 @@ Article.delete_all
 User.delete_all
 
 users = [
-  [ "Kanna Kamui", "kanna_kamui@gmail.com", "$2a$12$f1x6KfrB4gbq7NCC0R2X.O6QR0b9FlYnzD3bIWefAOvlXOKQa6ErW" ] #=> lolis
+  [ "Kanna Kamui", "maxespinal@live.com", "$2a$12$f1x6KfrB4gbq7NCC0R2X.O6QR0b9FlYnzD3bIWefAOvlXOKQa6ErW" ] #=> lolis
 ]
 
 articles = [
