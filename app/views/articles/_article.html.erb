@@ -1,5 +1,5 @@
-<div class="table-responsive">
-  <table class="table table-bordered">
+<!--<div class="table-responsive">
+  <table id="articles" class="table table-bordered"%>">
     <thead class="thead-dark">
       <tr>
         <th scope="col">Title</th>
@@ -19,6 +19,27 @@
         </td>
       </tr>
     <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#articles').DataTable();
+  });
+</script>
+-->
+<div class="table-responsive">
+  <table id="articles" class="table table-bordered" data-source="<%= articles_url(format: "json") %>">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
     </tbody>
   </table>
 </div>

@@ -33,7 +33,11 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    @articles = Article.order(:title).page(params[:page]).per(params[:page_size])
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: ArticlesDatatable.new(view_context) }
+     end
   end
 
   def destroy
@@ -49,6 +53,10 @@ class ArticlesController < ApplicationController
 
     def set_article
       @article = Article.find(params[:id])
+    end
+
+    def pages 
+      params.permit(:page, :page_size)
     end
 
 end
