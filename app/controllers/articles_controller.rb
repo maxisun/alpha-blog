@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.order(:title).page(params[:page]).per(params[:page_size])
+    @articles = Article.all
     respond_to do |format|
       format.html { render :index }
       format.json { render json: ArticlesDatatable.new(view_context) }
