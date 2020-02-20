@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   #users
   get 'signup', to: 'users#new'
+  #sessions
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
   #post 'users', to: 'users#create' #=> se puede hacer asi 
   resources :users, except: [:new]
   # al poner esto, podemos hacer el CRUD con respecto a la tabla articles
