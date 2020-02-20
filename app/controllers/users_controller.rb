@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_user, except: [:index, :show, :create, :new]
   before_action :require_same_user, only: [:edit, :update]
+  before_action :require_admin, only: [:destroy]
 
   def new
     @user = User.new
@@ -37,6 +38,12 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def destroy
+    @user.destroy
+    flash[:danger] = "The user and his articles were successfully deleted"
+    redirect_to users_path
+  end
+
   private
     def user_params
       params.require(:user).permit(:username, :email, :password)
@@ -47,8 +54,15 @@ class UsersController < ApplicationController
     end
 
     def require_same_user
-      if current_user != @user
+      if current_user != @user and !current_user.admin?
         flash[:danger] = "You can only edit your own profile"
+        redirect_to root_path
+      end
+    end
+
+    def require_admin
+      if logged_in? and !current_user.admin?
+        flash[:danger] = "Only admin users can perform this action"
         redirect_to root_path
       end
     end

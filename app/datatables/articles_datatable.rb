@@ -20,7 +20,7 @@ class ArticlesDatatable
         [
           article.title,
           article.description,
-          if @view.logged_in? && @view.current_user == article.user
+          if @view.logged_in? && (@view.current_user == article.user || @view.current_user.admin?)
             link_to('Edit', @view.edit_article_path(article), class: "btn btn-xs btn-primary")+" | "+
             link_to('Show', article, class: "btn btn-xs btn-info")+" | "+
             link_to('Delete', article, method: :delete, data: {confirm: "Are you sure? "}, class: "btn btn-xs btn-danger")
